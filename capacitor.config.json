@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "rate-my-shirt",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

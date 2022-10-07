@@ -1,0 +1,7 @@
+{
+  "name": "rate-my-shirt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
