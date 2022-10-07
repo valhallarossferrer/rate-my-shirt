@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Firestore, collectionData, collection, collectionChanges } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
+  items$: Observable<any>;
+  constructor(private firestore: Firestore) { }
 
-  constructor() {}
-
+  ngOnInit() {
+    const collectionItems = collection(this.firestore, 'items');
+    this.items$ = collectionData(collectionItems);
+    this.items$.subscribe(data => console.log('data', data));
+  }
 }

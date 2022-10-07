@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rate-my-shirt": {
+      "hosting": {
+        "app": [
+          "rate-my-shirt"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rate-my-shirt"
+  }
+}

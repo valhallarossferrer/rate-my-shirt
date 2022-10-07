@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>upload-shirt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen >
+
+  <ion-list lines="full" class="ion-no-margin">
+    <ion-list-header lines="full">
+      <ion-label> Create New Shirt </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input [(ngModel)]="form.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Front Image</ion-label>
+      <img *ngIf="form.frontImage.src" class="img-preview" [src]="form.frontImage.src" alt="">
+      <input
+        style="display: none"
+        type="file" (change)="onFileChanged($event, 'frontImage')"
+        #frontImage>
+      <ion-button size="small" (click)="frontImage.click()">upload</ion-button>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label position="stacked">Front Shirt</ion-label>
+      <img *ngIf="form.frontShirt.src" class="img-preview" [src]="form.frontShirt.src" alt="">
+      <input
+        style="display: none"
+        type="file" (change)="onFileChanged($event, 'frontShirt')"
+        #frontShirt>
+      <ion-button size="small" (click)="frontShirt.click()">upload</ion-button>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label position="stacked">Back Image</ion-label>
+      <img *ngIf="form.backImage.src" class="img-preview" [src]="form.backImage.src" alt="">
+      <input
+        style="display: none"
+        type="file" (change)="onFileChanged($event, 'backImage')"
+        #backImage>
+      <ion-button size="small" (click)="backImage.click()">upload</ion-button>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label position="stacked">Back Shirt</ion-label>
+      <img *ngIf="form.backShirt.src" class="img-preview" [src]="form.backShirt.src" alt="">
+      <input
+        style="display: none"
+        type="file" (change)="onFileChanged($event, 'backShirt')"
+        #backShirt>
+      <ion-button size="small" (click)="backShirt.click()">upload</ion-button>
+    </ion-item>
+   
+  </ion-list>
+  <ion-button style="margin-top: 20px;" expand="full" (click)="submit()">Submit</ion-button>
+</ion-content>
