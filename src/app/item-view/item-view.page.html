@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>TShirt Design</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="main-img">
+    <img [src]="data[activeImgType]" alt="" class="active-img">
+  </div>
+  <div class="imgs-container">
+    <img *ngIf="data.frontImage" [src]="data.frontImage" (click)="setActiveImgType('frontImage')" 
+      [class.in-active]="activeImgType!=='frontImage'" alt="" class="img-options">
+    <img *ngIf="data.frontShirt" [src]="data.frontShirt" (click)="setActiveImgType('frontShirt')"
+      [class.in-active]="activeImgType!=='frontShirt'" alt="" class="img-options">
+    <img *ngIf="data.backImage" [src]="data.backImage" (click)="setActiveImgType('backImage')"
+      [class.in-active]="activeImgType!=='backImage'" alt="" class="img-options">
+    <img *ngIf="data.backShirt" [src]="data.backShirt" (click)="setActiveImgType('backShirt')"
+      [class.in-active]="activeImgType!=='backShirt'" alt="" class="img-options">
+  </div>
+  <div class="rating-container">
+    <ion-label>
+      Final Score
+    </ion-label>
+    <h1>{{rating.final.toFixed(2)}}</h1>
+    <ion-label>
+      Design
+    </ion-label>  
+    <ion-chip [outline]="true">{{rating['design']}}</ion-chip>
+    <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="10" [(ngModel)]="rating['design']" (ionChange)="calcFinal()"></ion-range>
+    
+    <ion-label>
+      Craftsmanship/Skill
+    </ion-label>
+    <ion-chip [outline]="true">{{rating['skill']}}</ion-chip>
+    <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="10" [(ngModel)]="rating['skill']" (ionChange)="calcFinal()"></ion-range>
+    
+    <ion-label>
+      Creativity/Originality
+    </ion-label>
+    <ion-chip [outline]="true">{{rating['originality']}}</ion-chip>
+    <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="10" [(ngModel)]="rating['originality']" (ionChange)="calcFinal()"></ion-range>  
+  </div>
+ </ion-content>
+
+ <ion-button *ngIf="data.userId" class="submit-btn" style="margin-top: 20px;" expand="full" (click)="submit()">Submit</ion-button>

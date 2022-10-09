@@ -1,0 +1,45 @@
+.main-img {
+    background: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .active-img {
+        height: 75vw;
+    }
+}
+.imgs-container {
+    background: #fafafa;
+    height: 20vw;
+    .img-options {
+        height: 100%;
+        margin-top: 2px;
+        margin-right: 2px;
+        &.in-active {
+            opacity: 50%;
+        }
+    }
+}
+
+.rating-container {
+    padding: 16px;
+    margin-bottom: 40px;
+    h1{
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    ion-chip {
+        margin-top: 0;
+    }
+    ion-range {
+        margin-bottom: 20px;
+        padding-top: 0px;
+    }
+}
+
+.submit-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: calc(100vw - 4px);
+    margin: 0 2px;
+}

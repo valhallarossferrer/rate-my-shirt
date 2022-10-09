@@ -1,12 +1,12 @@
-<ion-menu contentId="main-content">
+<!-- <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menu Content</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">This is the menu content.</ion-content>
-</ion-menu>
-<div class="ion-page" id="main-content">
+</ion-menu> -->
+<!-- <div class="ion-page" id="main-content"> -->
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
@@ -15,17 +15,20 @@
       <ion-title>Admin</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
-
-  <ul>
-    <li *ngFor="let item of item$ | async">
-      {{ item.theme }}
-    </li>
-  </ul>
+  <ion-content [fullscreen]="true">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" *ngFor="let item of items">
+          <img alt="Front Image" [src]="item.frontImage"/>
+          <ion-chip *ngIf="ratings[item.id]">{{ratings[item.id].toFixed(2)}}</ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button [routerLink]="['/admin/upload-shirt']">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
   </ion-content>
-</div>
+<!-- </div> -->
